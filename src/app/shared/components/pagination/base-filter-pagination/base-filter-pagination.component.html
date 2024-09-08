@@ -1,0 +1,38 @@
+<div class="row mb-2">
+  <mat-form-field *ngIf="!searchInputHidden" [appearance]="'outline'">
+    <mat-label>Encontrar</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="filter.searchBy"
+      class="form-control"
+      [ngModelOptions]="{ standalone: true }"
+      [disabled]="searchInputDisabled"
+    />
+
+    <mat-icon
+      matSuffix
+      mat-icon-button
+      class="custom-icon"
+      [matTooltip]="tooltipMessage"
+      matTooltipPosition="right"
+      >help_outline</mat-icon
+    >
+  </mat-form-field>
+</div>
+
+<div class="row mb-2">
+  <div class="col-md-12 filter-submit">
+    <button type="button" class="btn btn-default" (click)="onCleanFilter()">
+      Limpar
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary ml-2"
+      (click)="onPageChange((filter.page = 1))"
+      [disabled]="disableBotton"
+    >
+      Buscar
+    </button>
+  </div>
+</div>

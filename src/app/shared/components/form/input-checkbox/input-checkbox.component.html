@@ -1,0 +1,15 @@
+<div class="checkbox-list">
+  <label *ngIf="label != '' ? true : false">{{
+    label + ":"
+  }}</label>
+
+  <mat-checkbox
+    *ngFor="let item of items"
+    [id]="item.id || ''"
+    [disabled]="disabled"
+    [checked]="item.checked"
+    (change)="onCheckboxChange($event, item)"
+  >
+    {{ item.label }}
+  </mat-checkbox>
+</div>

@@ -1,0 +1,31 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <mat-select
+    [(value)]="value"
+    [disabled]="disabled"
+    (selectionChange)="onValueChange($event)"
+    [required]="required"
+    panelClass="example-panel"
+    [formControl]="formControl"
+    (closed)="onClose()"
+  >
+    <mat-option
+      *ngFor="let item of items"
+      [value]="item.value"
+      [id]="item.id || ''"
+    >
+      {{ item.label }}
+    </mat-option>
+  </mat-select>
+
+  <mat-icon
+    matSuffix
+    *ngIf="value != '' && !disabled"
+    (click)="removeValue($event)"
+  >
+    close
+  </mat-icon>
+
+  @if(formControl.hasError('required')) {
+  <mat-error> Este campo é obrigatório </mat-error>}
+</mat-form-field>

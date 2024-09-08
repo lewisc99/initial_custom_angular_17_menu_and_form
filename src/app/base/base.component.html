@@ -1,0 +1,84 @@
+<div class="d-flex">
+  <div [class.sidebar-collapsed]="isCollapsed" class="sidebar">
+    <div class="sidebar-header">
+      <button mat-icon-button class="btn-toggle" (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <ul class="nav flex-column" *ngIf="!loadingMenu">
+      <li class="nav-item nav-main-item" *ngFor="let item of menuItems">
+        <a
+          class="nav-link"
+          (click)="toggleSubmenu(item.text)"
+          [hidden]="!item.permitido"
+        >
+          <mat-icon class="icon" [matTooltip]="item.text">{{
+            item.icon
+          }}</mat-icon>
+          <span class="menu-text" *ngIf="!isCollapsed">{{ item.text }}</span>
+        </a>
+        <ul
+          *ngIf="item.subItens && isSubmenuExpanded(item.text)"
+          class="nav flex-column nav-sub-items"
+        >
+          <li
+            class="nav-item nav-sub-item"
+            *ngFor="let subItem of item.subItens"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="subItem.link"
+              routerLinkActive="active"
+              [hidden]="!subItem.permitido"
+              [matTooltip]="subItem.text"
+            >
+              <mat-icon class="icon">{{ subItem.icon }}</mat-icon>
+              <span class="menu-text" *ngIf="!isCollapsed">{{
+                subItem.text
+              }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav flex-column" *ngIf="loadingMenu">
+      <li class="nav-item nav-main-item nav-link loading-spinner">
+        <div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="content d-flex flex-column"
+    [class.content-overlay]="!isCollapsed"
+  >
+    <nav class="navbar navbar-light justify-content-end">
+      <div class="nav-item">
+        <span class="navbar-text ml-auto logout">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>person</mat-icon>
+            {{ usuario?.nome }}
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>Logout
+            </button>
+          </mat-menu>
+        </span>
+      </div>
+    </nav>
+    <div
+      class="flex-grow-1 overflow-auto components"
+      (click)="!isCollapsed ? collapsedMenu() : ''"
+    >
+      <router-outlet></router-outlet>
+    </div>
+    <footer class="main-footer">
+      <div class="ms-auto me-2"><b>Version</b> 2.0.0</div>
+      <strong class="mldebugger-2 me-auto">Copyright &copy; 2024-2026</strong>
+    </footer>
+  </div>
+</div>

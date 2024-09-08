@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+div.main {
+  margin-left: 10px;
+  margin-bottom: 7px;
+  width: 100% !important;
+  display: flex;
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+
+.form-check {
+  margin-right: 15px;
+}
+
+.form-check-input {
+  border: 1px solid var(--gray-medium-color);
+  accent-color: var(--blue-main-color);
+}
+
+.radio-group-label {
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  div.main {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+}

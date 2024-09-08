@@ -1,0 +1,26 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <textarea
+    matInput
+    #input
+    [id]="id"
+    [placeholder]="placeholder"
+    [name]="name"
+    [disabled]="disabled"
+    [value]="value"
+    [maxLength]="maxLength"
+    [rows]="rows"
+    [required]="required"
+    [formControl]="formControl"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+  ></textarea>
+  @if(maxLength != 10000) {
+  <mat-hint align="end">{{ input.value.length }} / {{ maxLength }}</mat-hint>
+  } @if(formControl.hasError('required')) {
+  <mat-error> Este campo é obrigatório </mat-error>}
+  @if(formControl.hasError('maxlength')) {
+  <mat-error> O comprimento máximo é {{ maxLength }} caracteres </mat-error>}
+  @if(formControl.hasError('minlength')) {
+  <mat-error> O comprimento mínimo é {{ minLength }} caracteres </mat-error>}
+</mat-form-field>

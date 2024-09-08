@@ -1,0 +1,45 @@
+@if(!isDataRange) {
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    [id]="id"
+    [name]="name"
+    [value]="value"
+    [disabled]="disabled"
+    [formControl]="formControl"
+    [required]="required"
+    (dateChange)="handleDateChange($event)"
+    (blur)="onBlur()"
+  />
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  @if(formControl.hasError('required')) {
+  <mat-error> Este campo é obrigatório </mat-error>}
+</mat-form-field>
+} @else {
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <mat-date-range-input [rangePicker]="picker" [disabled]="disabled">
+    <input
+      matStartDate
+      [formControl]="startDateControl"
+      [placeholder]="placeholderStartDate"
+      [disabled]="disabled"
+      (dateChange)="handleDateRangeChange($event, true)"
+    />
+    <input
+      matEndDate
+      [formControl]="endDateControl"
+      [placeholder]="placeholderEndDate"
+      [disabled]="disabled"
+      (dateChange)="handleDateRangeChange($event)"
+    />
+  </mat-date-range-input>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+  @if(formControl.hasError('required')) {
+  <mat-error> Este campo é obrigatório </mat-error>}
+</mat-form-field>
+}

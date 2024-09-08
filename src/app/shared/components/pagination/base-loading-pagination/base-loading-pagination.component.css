@@ -1,0 +1,30 @@
+.loading-overlay {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+tbody {
+  width: inherit !important;
+  height: 130px;
+}
+
+td {
+  border-color:  transparent !important;
+  border-style: hidden;
+}
+
+
+@media only screen and (max-width: 1300px) {
+  #loading-overlay {
+    top: 50% !important;
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
+  #loading-overlay {
+    top: 46% !important;
+  }
+}

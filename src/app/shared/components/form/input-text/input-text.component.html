@@ -1,0 +1,38 @@
+<mat-form-field appearance="outline" [hidden]="hidden">
+  <mat-label>{{ label }}</mat-label>
+
+  <input
+    matInput
+    #input
+    [type]="type"
+    [id]="id"
+    [placeholder]="placeholder"
+    [name]="name"
+    [disabled]="disabled"
+    [value]="value"
+    (input)="handleInput($event)"
+    (blur)="onBlur()"
+    [maxLength]="maxLength"
+    [minLength]="minLength"
+    [maskMaxLength]="maxLength"
+    [required]="required"
+    [formControl]="formControl"
+    [mask]="mask"
+  />
+  @if(maxLength != 300) {
+  <mat-hint align="end">{{ input.value.length }} / {{ maxLength }}</mat-hint>
+  } @else if(mask === 'cnpj') {
+  <mat-hint align="end">{{ input.value.length }} / {{ 18 }}</mat-hint>
+  } @else if(mask === 'placa') {
+  <mat-hint align="end">{{ input.value.length }} / {{ 7 }}</mat-hint>
+  } @else if(mask === 'currency') {
+  <span matTextPrefix>R$&nbsp;</span>
+  } @else if(prefix != '') { @if(prefix == 'percentage') {
+  <span matTextPrefix>%&nbsp;</span>
+  } } @if(formControl.hasError('required')) {
+  <mat-error> Este campo é obrigatório </mat-error>}
+  @if(formControl.hasError('maxlength')) {
+  <mat-error> O comprimento máximo é {{ maxLength }} caracteres </mat-error>}
+  @if(formControl.hasError('minlength')) {
+  <mat-error> O comprimento mínimo é {{ minLength }} caracteres </mat-error>}
+</mat-form-field>
