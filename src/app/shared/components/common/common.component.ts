@@ -5,7 +5,7 @@ import { CurrencyPipe } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
 import { DataHelperService } from '../../helpers/data-helper.service';
 import { UsuarioService } from '../../../services/configuration/usuario.service';
-import { UtilService } from '../../../services/configuration/util.service';
+import { UtilService } from '../../helpers/util.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenService } from '../../../services/configuration/token.service';
 import { showfile } from '../../../services/configuration/showfile.service';
