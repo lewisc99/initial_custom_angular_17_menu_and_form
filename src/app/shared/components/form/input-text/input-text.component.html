@@ -21,15 +21,15 @@
   />
   @if(maxLength != 300) {
   <mat-hint align="end">{{ input.value.length }} / {{ maxLength }}</mat-hint>
-  } @else if(mask === 'cnpj') {
+  } @if(mask === 'cnpj') {
   <mat-hint align="end">{{ input.value.length }} / {{ 18 }}</mat-hint>
-  } @else if(mask === 'placa') {
+  } @if(mask === 'placa') {
   <mat-hint align="end">{{ input.value.length }} / {{ 7 }}</mat-hint>
-  } @else if(mask === 'currency') {
+  } @if(mask === 'currency') {
   <span matTextPrefix>R$&nbsp;</span>
-  } @else if(prefix != '') { @if(prefix == 'percentage') {
-  <span matTextPrefix>%&nbsp;</span>
-  } } @if(formControl.hasError('required')) {
+  } @if(prefix !== '') {
+  <span matTextPrefix>{{ prefix }}&nbsp;</span>
+  } @if(formControl.hasError('required')) {
   <mat-error> Este campo é obrigatório </mat-error>}
   @if(formControl.hasError('maxlength')) {
   <mat-error> O comprimento máximo é {{ maxLength }} caracteres </mat-error>}

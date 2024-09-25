@@ -20,6 +20,12 @@ export const routes: Routes = [
           import('./home/home.component').then((m) => m.HomeComponent),
       },
       {
+        path: 'forms',
+        title: 'Custom Forms',
+        loadComponent: () =>
+          import('./forms/forms.component').then((m) => m.FormsComponent),
+      },
+      {
         path: '404',
         title: 'Página Não Encontrada',
         loadComponent: () =>
@@ -29,6 +35,7 @@ export const routes: Routes = [
       },
     ],
   },
+
   {
     path: 'nao-autorizado',
     title: 'Usuário Não Autenticado',
