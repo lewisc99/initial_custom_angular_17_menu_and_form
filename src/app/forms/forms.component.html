@@ -56,6 +56,44 @@
         <div class="col-lg-4">
           {{ this.formGroup.value.callMethod }}
         </div>
+
+        <div class="col-lg-4">
+          <input-text
+            formControlName="requireByTemplate"
+            [required]="true"
+            placeholder="Require By Template"
+            label="Require By Template"
+          >
+          </input-text>
+        </div>
+        <div class="col-lg-4">
+          <input-text
+            formControlName="requireByFormGroup"
+            [required]="true"
+            placeholder="Require By Form Group"
+            label="Require By Form Group"
+          >
+          </input-text>
+        </div>
+
+        <div class="col-lg-4">
+          <input-text
+            formControlName="disabledByTemplate"
+            placeholder="Disabled By Template"
+            label="Disabled By Template"
+            [disabled]="true"
+          >
+          </input-text>
+        </div>
+
+        <div class="col-lg-4">
+          <input-text
+            formControlName="disabledByFormGroup"
+            placeholder="Disabled By FormGroup"
+            label="Disabled By FormGroup"
+          >
+          </input-text>
+        </div>
       </div>
     </form>
   </mat-card-content>

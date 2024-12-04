@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { InputTextAreaComponent } from '../shared/components/form/input-text-area/input-text-area.component';
@@ -32,6 +37,10 @@ export class FormsComponent implements OnInit {
       cnpj: '',
       percentage: '',
       callMethod: '',
+      requireByTemplate: '',
+      requireByFormGroup: ['', Validators.required],
+      disabledByTemplate: '',
+      disabledByFormGroup: [{ value: '', disabled: true }],
     });
   }
 
