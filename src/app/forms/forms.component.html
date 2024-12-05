@@ -48,13 +48,26 @@
         <div class="col-lg-4">
           <input-text
             label="Call Blur method"
-            formControlName="callMethod"
+            formControlName="callBlurMethod"
             (blur)="onBlur()"
           >
           </input-text>
         </div>
+
         <div class="col-lg-4">
-          {{ this.formGroup.value.callMethod }}
+          {{ blurValue }}
+        </div>
+
+        <div class="col-lg-4">
+          <input-text
+            label="Call Change method"
+            formControlName="callChangeMethod"
+            (change)="onChange()"
+          >
+          </input-text>
+        </div>
+        <div class="col-lg-4">
+          {{ changeValue }}
         </div>
 
         <div class="col-lg-4">

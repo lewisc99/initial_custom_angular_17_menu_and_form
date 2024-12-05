@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { InputTextAreaComponent } from '../shared/components/form/input-text-area/input-text-area.component';
 import { InputTextComponent } from '../shared/components/form/input-text/input-text.component';
 import { NgIf } from '@angular/common';
 
@@ -27,6 +26,9 @@ import { NgIf } from '@angular/common';
 export class FormsComponent implements OnInit {
   public formGroup!: FormGroup;
 
+  blurValue: string = '';
+  changeValue: string = '';
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -36,7 +38,8 @@ export class FormsComponent implements OnInit {
       placa: '',
       cnpj: '',
       percentage: '',
-      callMethod: '',
+      callBlurMethod: '',
+      callChangeMethod: '',
       requireByTemplate: '',
       requireByFormGroup: ['', Validators.required],
       disabledByTemplate: '',
@@ -44,5 +47,11 @@ export class FormsComponent implements OnInit {
     });
   }
 
-  onBlur() {}
+  onBlur() {
+    this.blurValue = this.formGroup.value.callBlurMethod;
+  }
+
+  onChange() {
+    this.changeValue = this.formGroup.value.callChangeMethod;
+  }
 }
