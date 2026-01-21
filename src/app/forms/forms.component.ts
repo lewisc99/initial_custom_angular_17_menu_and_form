@@ -44,6 +44,9 @@ export class FormsComponent implements OnInit {
       requireByFormGroup: ['', Validators.required],
       disabledByTemplate: '',
       disabledByFormGroup: [{ value: '', disabled: true }],
+      maxLengthExample: '',
+      minLengthExample: '',
+      minAndMaxLengthExample: ''
     });
   }
 

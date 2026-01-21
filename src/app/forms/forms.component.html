@@ -107,6 +107,35 @@
           >
           </input-text>
         </div>
+
+        <div class="col-lg-4">
+          <input-text
+            formControlName="maxLengthExample"
+            placeholder="Max Length Example"
+            label="Max Length Example"
+            [maxLength]="10"
+          >
+          </input-text>
+        </div>
+        <div class="col-lg-4">
+          <input-text
+            formControlName="minLengthExample"
+            placeholder="Min Length Example"
+            label="Min Length Example"
+            [minLength]="5"
+          >
+          </input-text>
+        </div>
+
+        <div class="col-lg-4">
+          <input-text
+          label="Min and Max Length"
+          formControlName="minAndMaxLengthExample"
+          [minLength]="5"
+          [maxLength]="15"
+        >
+          </input-text>
+        </div>
       </div>
     </form>
   </mat-card-content>
