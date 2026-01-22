@@ -48,6 +48,8 @@ export class FormsComponent implements OnInit {
       minLengthExample: '',
       minAndMaxLengthExample: ''
     });
+
+    this.formGroup.get('name')?.setValue('Joe Doe');
   }
 
   onBlur() {
