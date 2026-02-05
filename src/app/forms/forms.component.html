@@ -124,12 +124,28 @@
 
         <div class="col-lg-4">
           <input-text
-          label="Min and Max Length"
-          formControlName="minAndMaxLengthExample"
-          [minLength]="5"
-          [maxLength]="15"
-        >
+            label="Min and Max Length"
+            formControlName="minAndMaxLengthExample"
+            [minLength]="5"
+            [maxLength]="15"
+          >
           </input-text>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <input-text-area
+            label="Input Text Area"
+            formControlName="inputTextArea"
+            mask="currency"
+            [required]="true"
+            [maxLength]="100"
+            [rows]="3"
+            [minLength]="10"
+          />
+        </div>
+        <div class="col-lg-4">
+          
         </div>
       </div>
     </form>

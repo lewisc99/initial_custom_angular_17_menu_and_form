@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { InputTextComponent } from '../shared/components/form/input-text/input-text.component';
 import { NgIf } from '@angular/common';
+import { InputTextAreaComponent } from '../shared/components/form/input-text-area/input-text-area.component';
 
 @Component({
   selector: 'app-forms',
@@ -18,6 +19,7 @@ import { NgIf } from '@angular/common';
     MatButtonModule,
     ReactiveFormsModule,
     InputTextComponent,
+    InputTextAreaComponent,
     NgIf,
   ],
   templateUrl: './forms.component.html',
@@ -46,7 +48,8 @@ export class FormsComponent implements OnInit {
       disabledByFormGroup: [{ value: '', disabled: true }],
       maxLengthExample: '',
       minLengthExample: '',
-      minAndMaxLengthExample: ''
+      minAndMaxLengthExample: '',
+      inputTextArea: ''
     });
 
     this.formGroup.get('name')?.setValue('Joe Doe');
