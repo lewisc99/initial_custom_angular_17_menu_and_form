@@ -145,7 +145,18 @@
           />
         </div>
         <div class="col-lg-4">
-          
+          <input-select
+            label="Input Select"
+            formControlName="inputSelect"
+            [items]="selectOptions"
+            [required]="true"
+          ></input-select>
+        </div>
+
+        <div class="col-lg-4">
+          <button mat-raised-button color="primary" (click)="onSubmit()">
+            Submit
+          </button>
         </div>
       </div>
     </form>

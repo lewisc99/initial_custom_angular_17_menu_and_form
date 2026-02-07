@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { InputTextComponent } from '../shared/components/form/input-text/input-text.component';
 import { NgIf } from '@angular/common';
 import { InputTextAreaComponent } from '../shared/components/form/input-text-area/input-text-area.component';
+import { InputSelectComponent } from '../shared/components/form/input-select/input-select.component';
 
 @Component({
   selector: 'app-forms',
@@ -20,6 +21,7 @@ import { InputTextAreaComponent } from '../shared/components/form/input-text-are
     ReactiveFormsModule,
     InputTextComponent,
     InputTextAreaComponent,
+    InputSelectComponent,
     NgIf,
   ],
   templateUrl: './forms.component.html',
@@ -30,6 +32,13 @@ export class FormsComponent implements OnInit {
 
   blurValue: string = '';
   changeValue: string = '';
+
+  selectOptions = [
+    { id: '1', value: 'option1', label: 'Option 1' },
+    { id: '2', value: 'option2', label: 'Option 2' },
+    { id: '3', value: 'option3', label: 'Option 3' },
+  ];
+
 
   constructor(private fb: FormBuilder) {}
 
@@ -49,7 +58,8 @@ export class FormsComponent implements OnInit {
       maxLengthExample: '',
       minLengthExample: '',
       minAndMaxLengthExample: '',
-      inputTextArea: ''
+      inputTextArea: '',
+      inputSelect: [],
     });
 
     this.formGroup.get('name')?.setValue('Joe Doe');
@@ -61,5 +71,9 @@ export class FormsComponent implements OnInit {
 
   onChange() {
     this.changeValue = this.formGroup.value.callChangeMethod;
+  }
+
+  onSubmit() {  
+    console.log(this.formGroup.value);
   }
 }
